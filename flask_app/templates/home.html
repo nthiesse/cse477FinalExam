@@ -1,0 +1,27 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<main> 
+  <div class="parent">
+      <div class="leftBox">
+          <img src="static/main/images/NataliImage.jpg" alt="Natali Thiesse Picture" loading="lazy">
+      </div>
+      <div class="rightBox">
+          <p> <div class="name"> Natali Thiesse </div>
+              Natali Thiesse is a third year student at Michigan State University. She is studying Computer Science with a minor in Entrepreneurship and Innovation. In addition to school, Natali works for Michigan State’s Manufacturing and Teaching Laboratory. She aids students while they use the machine shop to complete school projects. It reminds her of her time as a hardware lead and safety captain on her high school’s FIRST Robotics Team, 2530. Outside of school and work, Natali is the Vice President of MSU’s Synchronized Skating Team. She has been skating since fourth grade and is grateful that she can continue doing what she loves during her time at school. She works hard on team travel arrangements to competitions, designs team clothing, and helps the president with side tasks. She is also a US Figure Skating double gold medalist and is working toward her third gold medal ice dance. Natali is looking forward to interning with Xcel Energy in Minneapolis this summer working in the Audit section of the company. She is excited to explore a new opportunity that could serve as a career option in the future.
+          </p>
+      </div>
+  </div>
+
+  <div class="funFact">
+      <hr>
+      <br>
+      <h2>A fun fact:</h2>
+      <br>
+      <b>{{fun_fact}}</b> 
+      <br>
+      <br>
+  </div>
+</main>
+{% endblock %}
+

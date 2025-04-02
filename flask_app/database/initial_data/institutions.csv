@@ -1,0 +1,5 @@
+"inst_id","type","name","department","address","city","state","zip"
+"1","Academia","Michigan State University","College of Engineering",NULL,"East Lansing","Michigan",NULL
+"2","Industry","Sylvan Learning",NULL,NULL,"East Lansing","Michigan",NULL
+"3","Industry","Planting Seeds Tutoring",NULL,NULL,"Rochester","Minnesota",NULL
+"4","Industry","Code Ninjas",NULL,NULL,"Rochester","Minnesota",NULL

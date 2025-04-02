@@ -1,0 +1,31 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<br><br>
+<h1 class="center">Chat Room</h1>
+<br><br>
+<hr class="line">
+<br><br>
+<div id='chat' contenteditable>
+</div>
+
+<br>
+
+<div class="messageBox">
+    <p>
+        <input placeholder="Enter Your Message Here" />
+    </p>
+</div>
+<br>
+<button id="leave" class="leaveButton">Leave Chat</button>
+<br>
+<br>
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+<script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
+<script type="text/javascript" charset="utf-8"> 
+</script>
+{% endblock %}
+

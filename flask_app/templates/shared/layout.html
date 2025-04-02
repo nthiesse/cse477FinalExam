@@ -1,0 +1,125 @@
+<!-- FILL ME IN WITH CODE FOR YOUR PAGE LAYOUT -->
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Natali Thiesse's Personal Page</title>
+    <link rel="stylesheet"    href="{{ url_for('static', filename='main/css/main.css') }}">
+    <link rel="stylesheet"    href="{{ url_for('static', filename='main/css/header.css') }}">
+    <link rel="stylesheet"    href="{{ url_for('static', filename='main/css/navbar.css') }}">
+    <link rel="stylesheet"    href="{{ url_for('static', filename='main/css/footer.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='main/images/Natalifavicon.png') }}">
+    {% block extracss %}{% endblock %}
+    
+    {% block extrajs %}{% endblock %}
+  </head>
+  
+
+<body>
+    <article>
+    <!-- The header  -->
+    <header>
+      <img src="{{ url_for('static', filename='main/images/477HeaderImage.jpg') }}" alt="Header Moon Image" class="headerImage" loading="lazy">
+    </header>
+
+    <!-- The navigation bar -->
+    <!-- <nav>
+      <div>
+      {% if user == 'Unknown' %}  
+      <p>CSE 477 - Homework 3</p>
+      {% else %}
+      <p>Logged in as {{user}}</p>
+      {% endif %}
+      <br> -->
+      
+
+      <!-- <a href="/home">Home</a>
+      <a href="/resume">Resume</a>
+      <a href="/resume">Resume</a>
+      <a href="/chat">Chat</a>
+      <a href="/login">Login</a>
+      <a href="/logout">Logout</a> -->
+    <!-- </nav> -->
+
+    <div class="nav-background">
+      <nav class="navbar">
+          <a href="#" class="class-name">{% if user == 'Unknown' %}  
+            <p>CSE 477 - Homework 3</p>
+            {% else %}
+            <p>Logged in as {{user}}</p>
+            {% endif %}</a>
+          
+          <ul class="menu">
+              <a href="/home">Home</a>
+              <a href="/projects">Projects</a>
+              <a href="/resume">Resume</a>
+              <a href="/chat">Chat</a>
+              {% if user == 'Unknown' %}
+                <a href="/login">Login</a>
+              {% else %}
+                <a href="/logout">Logout</a>
+              {% endif %}
+              
+              <li class="item">
+                  <a href = "https://www.linkedin.com/in/natali-thiesse-35ba2125a"  class="link">
+                      <img src="{{ url_for('static', filename='main/images/social-linkedin.png') }}" alt="Header Moon Image" alt="LinkedIn" class="linkedInImage" loading="lazy">
+              </a></li>
+              <li class="item">
+                  <div class="words"><a href = "https://www.linkedin.com/in/natali-thiesse-35ba2125a"  class="link">LinkedIn</a></div>
+              </li>
+          </ul>
+          <img src="{{ url_for('static', filename='main/images/menu-bar.png') }}" alt="menu icon" alt="Menu" class="hamburger" loading="lazy">
+      </nav>
+  </div>
+
+    <!-- The main content  -->
+    <main>
+      {% block maincontent %}{% endblock %}
+    </main>
+
+    <div class="feedbackform" id="feedbackform">
+      <form action="/processfeedback" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <label for="comment">Comment:</label>
+        <input type="text" id="comment" name="comment"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <button class="button" onclick="feedbackform()" id="feedbackbutton">Feedback</button>
+
+    <!-- The footer of the file -->
+    <div class="footer">
+      <p>©Natali Thiesse</p>
+    </div>
+
+    </article>
+  
+</body>
+
+</html>
+<script src="static/main/js/navbar.js" defer></script>
+<script src="{{ url_for('static', filename='main/js/main.js') }}" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

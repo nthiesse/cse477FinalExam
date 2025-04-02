@@ -1,0 +1,255 @@
+/* Styling for resume page */
+h1 {
+    color: #000000;
+}
+
+h2 {
+    margin-block-start: 1vh;
+    margin-block-end: 1vh;
+    color: #4a4a4a;
+}
+
+h3 {
+    margin-block-start: 1vh;
+    margin-block-end: 1vh;
+    color: #767676;
+}
+
+h4 {
+    margin-block-start: 1vh;
+    margin-block-end: 1vh;
+    color: #767676;
+}
+
+h5 {
+    margin-block-start: 1vh;
+    margin-block-end: 1vh;
+    color: #767676;
+}
+
+.bold {
+    color: #4a4a4a;
+}
+
+
+ul {
+    margin-block-start: 0vh;
+    margin-block-end: 0vh;
+    color: #3a3a3a;
+}
+
+li {
+    color: #3a3a3a;
+}
+
+.row-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.right-align {
+    text-align: right;
+    align-items: center;
+}
+
+.indent {
+    padding-left: 4%;
+    
+}
+
+
+/* The parent box holds the left and right box */
+.parent{
+    width: 80vh;
+    margin: auto;
+    height: 50vh;
+    margin-top: 5%; 
+    color: #3a3a3a;
+    position: relative;
+    text-align: center;
+    justify-items: auto;
+}
+
+/* Left box holds the profile image */
+.leftBox {
+    width: 45%;
+    float: left;
+    height: 73%;
+    background-color: clear;
+    
+}
+
+/* make the profile image to fill the whole container */
+.leftBox img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* the right box holds the bio */
+.rightBox {
+    width: 45%;
+    float: right;
+    height: 75%;
+    background-color: clear;
+    overflow: scroll;
+    margin-left: 3%; 
+    text-align: justify;
+}
+
+/* Structure the fun fact column */
+.funFact {
+    color: #3a3a3a;
+    text-align: center;
+    height: 25%; 
+    text-justify: auto;
+}
+
+/* Make the name in the bio bold with a larger font size */
+.name {
+    font-weight: bold;
+    font-size: 5vh;
+}
+
+/* Make a spacer box */
+.blankBox {
+    width: 100%;
+    height: 200px;
+}
+
+.piano-link {
+    color: #3a3a3a;
+    text-decoration: underline;
+}
+
+@media (max-width: 650px) {
+    .parent {
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+    }
+    .rightBox {
+        height: 100%;
+        overflow: hidden;
+    }
+
+}
+
+/* Styling for the feedback form */
+.feedbackform {
+    background-color: #E7F0DC;
+    position: fixed; 
+    top: 50%;
+    left: 40%;
+    display: none;
+    padding: 1vh;
+    border: 0.5vh solid #597445;
+    z-index: 1000;
+}
+
+.button {
+    background-color: #E7F0DC;
+    border: 0.3vh solid #597445;
+    /* height: 2vh;
+    width: 4vh; */
+    position: fixed;
+    top: 50%;
+    left: 98%;
+    writing-mode: vertical-rl;
+    font-size: 3vh;
+}
+
+.error_message {
+    color: #003c19;
+    visibility: hidden;
+    text-align: center;
+}
+
+/* chat box formating*/
+#chat {
+    width: 35%;
+    height: 350px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    overflow-y: auto;
+    margin-left: auto;
+    margin-right: auto; 
+
+}
+
+.center {
+    text-align: center;
+}
+
+.line {
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.messageBox input {
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+    height: 5vh;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+.leaveButton {
+    width: 35%;
+    height: 5vh;
+    background-color: #658147;
+    color: #FFFFFF; 
+    border: none; 
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+.loginBoxes {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    height: 7vh;
+    border: none;
+    background-color: rgb(244, 244, 244);
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.loginButton {
+    width: 25%;
+    height: 7vh;
+    background-color: #658147;
+    color: #FFFFFF; 
+    border: none; 
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 16px; 
+    font-family: 'Times New Roman', Times, serif;
+}
