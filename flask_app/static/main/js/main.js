@@ -43,7 +43,7 @@ let count = 0
     }
 
     // code for the chat feature
-    
+    // var socket;
     // $(document).ready(function () {
 
     //     // socket = io.connect('https://' + document.domain + ':' + location.port + '/chat');
