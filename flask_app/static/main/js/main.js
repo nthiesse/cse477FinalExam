@@ -43,48 +43,49 @@ let count = 0
     }
 
     // code for the chat feature
-    $(document).ready(function () {
+    
+    // $(document).ready(function () {
 
-        // socket = io.connect('https://' + document.domain + ':' + location.port + '/chat');
-        socket = io.connect('http://' + document.domain + ':' + location.port + '/chat');
-        socket.on('connect', function () {
-            socket.emit('joined', {});
-        });
+    //     // socket = io.connect('https://' + document.domain + ':' + location.port + '/chat');
+    //     socket = io.connect('http://' + document.domain + ':' + location.port + '/chat');
+    //     socket.on('connect', function () {
+    //         socket.emit('joined', {});
+    //     });
 
-        socket.on('status', function (data) {
-            let tag = document.createElement("p");
-            let text = document.createTextNode(data.msg);
-            let element = document.getElementById("chat");
-            tag.appendChild(text);
-            tag.style.cssText = data.style;
-            element.appendChild(tag);
-            $('#chat').scrollTop($('#chat')[0].scrollHeight);
+    //     socket.on('status', function (data) {
+    //         let tag = document.createElement("p");
+    //         let text = document.createTextNode(data.msg);
+    //         let element = document.getElementById("chat");
+    //         tag.appendChild(text);
+    //         tag.style.cssText = data.style;
+    //         element.appendChild(tag);
+    //         $('#chat').scrollTop($('#chat')[0].scrollHeight);
 
-        });
+    //     });
 
-        socket.on('message', function (data) {
-                let tag = document.createElement("p");
-                let text = document.createTextNode(data.msg);
-                let element = document.getElementById("chat");
-                tag.appendChild(text);
-                tag.style.cssText = data.style;
-                element.appendChild(tag);
-                $('#chat').scrollTop($('#chat')[0].scrollHeight);
-        });
+    //     socket.on('message', function (data) {
+    //             let tag = document.createElement("p");
+    //             let text = document.createTextNode(data.msg);
+    //             let element = document.getElementById("chat");
+    //             tag.appendChild(text);
+    //             tag.style.cssText = data.style;
+    //             element.appendChild(tag);
+    //             $('#chat').scrollTop($('#chat')[0].scrollHeight);
+    //     });
 
-        // start the process of putting the message on the screen when the user presses enter 
-        $('input').unbind('keypress').keypress(function(event) {
-            if (event.which === 13) {
-                let message = $(this).val();
-                socket.emit('message', { 'msg': message });
-                $(this).val('');
-            }
-        });
+    //     // start the process of putting the message on the screen when the user presses enter 
+    //     $('input').unbind('keypress').keypress(function(event) {
+    //         if (event.which === 13) {
+    //             let message = $(this).val();
+    //             socket.emit('message', { 'msg': message });
+    //             $(this).val('');
+    //         }
+    //     });
 
-        // leave the chat button
-        $('#leave').click(function() {
-            socket.emit('leaveChat', {});
-            window.location.href = '/';
-            socket.disconnect();
-        });
-    });
+    //     // leave the chat button
+    //     $('#leave').click(function() {
+    //         socket.emit('leaveChat', {});
+    //         window.location.href = '/';
+    //         socket.disconnect();
+    //     });
+    // });

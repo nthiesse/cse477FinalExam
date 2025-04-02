@@ -52,7 +52,6 @@ def processlogin():
         print("Email and password combination not in the database")
         return json.dumps({'status': 2})
 
-    # session['email'] = email
     session['email'] = db.reversibleEncrypt('encrypt', email)
     return json.dumps({'status': 1})
 

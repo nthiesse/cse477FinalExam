@@ -25,7 +25,54 @@
 {% block extrajs %}
 <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
 <script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
-<script type="text/javascript" charset="utf-8"> 
+<script type="text/javascript" charset="utf-8">
+</script>
+<script>
+    var socket;
+    $(document).ready(function () {
+
+        // socket = io.connect('https://' + document.domain + ':' + location.port + '/chat');
+        socket = io.connect('http://' + document.domain + ':' + location.port + '/chat');
+        socket.on('connect', function () {
+            socket.emit('joined', {});
+        });
+
+        socket.on('status', function (data) {
+            let tag = document.createElement("p");
+            let text = document.createTextNode(data.msg);
+            let element = document.getElementById("chat");
+            tag.appendChild(text);
+            tag.style.cssText = data.style;
+            element.appendChild(tag);
+            $('#chat').scrollTop($('#chat')[0].scrollHeight);
+
+        });
+
+        socket.on('message', function (data) {
+            let tag = document.createElement("p");
+            let text = document.createTextNode(data.msg);
+            let element = document.getElementById("chat");
+            tag.appendChild(text);
+            tag.style.cssText = data.style;
+            element.appendChild(tag);
+            $('#chat').scrollTop($('#chat')[0].scrollHeight);
+        });
+
+        // start the process of putting the message on the screen when the user presses enter 
+        $('input').unbind('keypress').keypress(function (event) {
+            if (event.which === 13) {
+                let message = $(this).val();
+                socket.emit('message', { 'msg': message });
+                $(this).val('');
+            }
+        });
+
+        // leave the chat button
+        $('#leave').click(function () {
+            socket.emit('leaveChat', {});
+            window.location.href = '/';
+            socket.disconnect();
+        });
+    });
 </script>
 {% endblock %}
-
