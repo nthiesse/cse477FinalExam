@@ -70,8 +70,10 @@
         // leave the chat button
         $('#leave').click(function () {
             socket.emit('leaveChat', {});
-            window.location.href = '/';
-            socket.disconnect();
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 500);
+            //socket.disconnect();
         });
     });
 </script>
