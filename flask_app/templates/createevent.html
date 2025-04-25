@@ -1,0 +1,55 @@
+{% extends 'shared/layout.html' %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+
+{% block maincontent %}
+
+<br><br>
+<div class="center">
+    <h1>Create an Event</h1>
+    <br><br>
+
+    <form action='/create_event_info', method="POST">
+        <label for="name">Name of Event:</label>
+        <input type="text" id="event_name" name="event_name" placeholder="Event Name" required><br><br>
+
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required><br><br>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required><br><br>
+
+        <label for="start_time">Start Time:</label><br>
+        <input type="time" id="start_time" name="start_time" required><br><br>
+
+        <label for="end_time">End Time:</label><br>
+        <input type="time" id="end_time" name="end_time" required><br><br>
+
+        <label for="invitees">People to invite (comma-separated):</label><br>
+        <textarea id="invitees" name="invitees" rows="4" cols="50" placeholder="email1@example.com, email2@example.com" required></textarea><br><br>
+
+        <button type="submit">Create Event</button>
+
+    </form>
+</div>
+
+
+<!-- 
+<div class="feedbackform" id="feedbackform">
+    <form action="/processfeedback" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email"><br><br>
+      <label for="comment">Comment:</label>
+      <input type="text" id="comment" name="comment"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div> -->
+
+{% endblock %}

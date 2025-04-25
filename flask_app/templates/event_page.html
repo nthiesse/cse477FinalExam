@@ -1,0 +1,86 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<main>
+    <body data-event-id="{{ event_id }}"></body>
+    <br><br>
+    <h1 class="center">{{ event.event_name }}</h1>
+    <h2 class="center"> {{ event.start_date }} - {{ event.end_date }}</h2>
+    <h3 class="nothingSelected" id="noAvailabilityMessage">No availability selected yet</h3>
+    <h3 class="bestTime" id="bestTimeDisplay">Best Time to Meet: </h3>
+    <p class = timeDetails id="timeDetails"></p>
+    </div>
+
+    <br>
+
+    <label for="availability" class="addLeftMargin">Choose your availability:</label>
+    <select name="availability" id="availability" >
+        <option value="available">Avaliable</option>
+        <option value="maybe">Maybe</option>
+        <option value="unavailable">Unavaliable</option>
+    </select>
+    <br><br>
+
+    <div class="flexContainer">
+        <div>
+            <h3 class="addLeftMargin">Your Availability:</h3>
+            <br>
+            <table class="gridOutline">
+                <thead>
+                    <tr>
+                        <th>   </th>
+                        {% for date in dates %}
+                        <th>{{ date.strftime('%b %d') }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for time in times %}
+                    <tr>
+                        <td>{{ time }}</td>
+                        {% for date in dates %}
+                            <td class="cell" time="{{ time }}" date="{{ date.strftime('%Y-%m-%d') }}"></td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <h3 class="addLeftMargin">Everyone's Availability: </h3>
+            <br>
+            <table class="gridOutline">
+                <thead>
+                    <tr>
+                        <!-- <th>Time</th> -->
+                        <th>   </th>
+                        {% for date in dates %}
+                        <th>{{ date.strftime('%b %d') }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for time in times %}
+                    <tr>
+                        <td>{{ time }}</td>
+                        {% for date in dates %}
+                            <td class="unchangableCell" time="{{ time }}" date="{{ date.strftime('%Y-%m-%d') }}"></td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+</main>
+{% endblock %}
+
+{% block extrajs %}
+
+<script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
+
+{% endblock %}
