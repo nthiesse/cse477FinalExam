@@ -524,13 +524,19 @@ class database:
                 charset='latin1')
             cursor = cnx.cursor()
 
+            cursor.execute("SELECT * FROM event_availability;")
+            temp = cursor.fetchall()
+            for i in temp: 
+                print("ALL: ", i)
+
             # get all the availabilities for the event
             cursor.execute(
                 "SELECT date, time_slot, availabile FROM event_availability WHERE event_id=%s;", (event_id,))
             data = cursor.fetchall()
-            # print(data)
 
             for row in data:
+                print("DATA", row)
+
                 # go through each row to get the date, time, and availability
                 date = row[0].strftime('%Y-%m-%d')
                 total_seconds = int(row[1].total_seconds())
@@ -546,6 +552,8 @@ class database:
                         'available': 0, 'maybe': 0, 'unavailable': 0}
                 # count how many times a person is a type of available for each date time combination
                 output[(date, time)][available] += 1
+
+                print("OUTPUT", output)
 
             # disconnect from the database
             cursor.close()
